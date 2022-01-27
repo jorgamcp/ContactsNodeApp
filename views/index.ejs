@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts app with templates</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div id="background-modal">
+        <section id="modal">
+          <div class="titulo">
+            <div class="container-title-close">
+              <div id="close"></div>
+              <h3>Añadir Nuevo Contacto</h3>
+            </div>
+          </div>
+         
+        </section>
+      </div> -->
+
+      <nav>
+        <h3>Contacts App with templates ejs!</h3>
+      </nav>
+      <div class="app-container">
+        <div id="buttons">
+          <a id="btn-addContact" href="/add">Añadir Contacto</a></button>
+        </div>
+        <table id="mycontacttable">
+          <thead>
+            <th>Contact Id</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th colspan="2">Acciones</th>
+          </thead>
+          <tbody>
+            <% for(var i = 0; i < data.length;i++){ %>
+            <tr>
+              <td><%= data[i].contact_id %></td>
+              <td><%= data[i].name %></td>
+              <td><%= data[i].age %></td>
+              <td>
+                <a href="/edit/<%= data[i].contact_id %>"> Editar</a>
+              </td>
+              <td>
+                <a href="/delete/<%= data[i].contact_id %>"> Eliminar</a>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      
+      </div>
+    </div>
+  </body>
+  <script src="/assets/js/main.js"></script>
+</html>

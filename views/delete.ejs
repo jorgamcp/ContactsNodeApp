@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts app with templates</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h3>Delete Contact number <%= id %></h3>
+      <p>Name : <%= name %></p>
+      <p>Age : <%= age %></p>
+
+      <form id="deletecontactform" class="formulario" action=""  method="POST">
+        
+        <label>Nombre</label>
+        <input id="nombreFormFieldmod" name="nombreFormFieldName" type="text" value= <%= name %> />
+
+        <label>Edad</label>
+        <input id="edadFormFieldmod"  name="edadFormFieldName" type="text" value=<%= age %> />
+        <button id="btnmod">Borrar  Contacto</button>
+        <a href="/" id="back">Volver</a>
+      </form>
+
+
+
+
+    </div>
+  </body>
+  <script src="/assets/js/main.js"></script>
+</html>

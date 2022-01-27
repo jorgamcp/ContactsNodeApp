@@ -1,0 +1,4 @@
+.env
+node_modules
+index.js.bak
+package-lock.json
