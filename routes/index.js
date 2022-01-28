@@ -13,7 +13,7 @@ router.get("/", function (request, response, next) {
 
   conexion.query(sql_query, function (error, resultados) {
     // Si hay error excepcion muestralo por consola.
-    if (error) return response.render("index.ejs", { error: error_msg });
+    if (error) return response.render("index.ejs", { error_msg: error });
     // console.log(resultados);
     return response.render("index.ejs", { data: resultados });
   });
@@ -35,12 +35,22 @@ router.post("/add", function (request, response, next) {
     age: request.body.edadFormFieldName,
   };
 
+ 
+  if(mycontact.name === '' && mycontact.age === ''){
+    console.log('name if: ' + mycontact.name);
+    console.log('age if: ' + mycontact.age);
+        return response.render("add.ejs", { error: 'fiels blank' , name: mycontact.name,age:mycontact.age});
+  }
+ 
+  
+
+
   const sql_insert_query = "INSERT INTO contacts(name,age) VALUES (?,?)";
   conexion.query(
     sql_insert_query,
     [request.body.nombreFormFieldName, request.body.edadFormFieldName],
     function (error, resultados) {
-      if (error) return response.render("index.ejs", { error: error });
+      if (error) return response.render("add.ejs", { error: error });
       return response.status(200).redirect("/");
     }
   );

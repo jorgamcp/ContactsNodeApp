@@ -13,12 +13,23 @@
         <h3>Contacts App with templates ejs!</h3>
       </nav>
       <div class="app-container">
-        <form id="newcontactform" class="formulario" action="" method="POST">
-          <label>Nombre</label>
-          <input id="nombreFormField" name="nombreFormFieldName" type="text" />
+       
 
+        <form id="newcontactform" class="formulario" action="" method="POST">
+         
+          <label>Nombre</label>
+         
+          <input id="nombreFormField" name="nombreFormFieldName" type="text" />
+          <% if(typeof error != "undefined" ) { %>
+            <% console.log(error)%>
+            <p class="error_msg">Error: The  Name cannot be blank</p>
+         <% } %>
           <label>Edad</label>
           <input id="edadFormField" name="edadFormFieldName" type="text" />
+          <% if(typeof error != "undefined" ) { %> 
+            <p class="error_msg">Error: The  age cannot be blank</p>
+         <% } %>
+         
           <button id="btnenv">Guardar Contacto</button>
           <a href="/" id="back">Volver</a>
         </form>
