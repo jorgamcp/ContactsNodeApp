@@ -59,7 +59,7 @@ contactRouter.get("/contacts/:id", function (request, response) {
       }
     });
   });
-  contactRouter.post("/contacts", function (request, response) {
+  contactRouter.post("/", function (request, response) {
     console.log(request.body);
     const sql_insert_query = "INSERT INTO contacts(name,age) VALUES (?,?)";
     conexion.query(

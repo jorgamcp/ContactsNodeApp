@@ -6,27 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacts app with templates</title>
     <link rel="stylesheet" href="/assets/style.css" />
+ 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
   </head>
   <body>
-    <div class="container">
-      <!-- <div id="background-modal">
-        <section id="modal">
-          <div class="titulo">
-            <div class="container-title-close">
-              <div id="close"></div>
-              <h3>Añadir Nuevo Contacto</h3>
-            </div>
-          </div>
-         
-        </section>
-      </div> -->
-
+    <div class="my-container">
+        
       <nav>
         <h3>Contacts App with templates ejs!</h3>
       </nav>
       <div class="app-container">
+        <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('add.ejs') -%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="mibotoncabron" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
         <div id="buttons">
-          <a id="btn-addContact" href="/add">Añadir Contacto</a></button>
+          <a class="btn btn-primary m-3" id="btn-addContact" href="/add">Añadir Contacto</a></button>
+          <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+          </button>
         </div>
         <table id="mycontacttable">
           <thead>
@@ -55,5 +75,39 @@
       </div>
     </div>
   </body>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 
   <script src="/assets/js/main.js"></script>
+  <script>
+    
+      var boton = document.querySelectorAll('#mibotoncabron');
+
+      boton[0].addEventListener('click', async function(e){
+           e.preventDefault();
+           console.log('quieres enviar el form del modal!');
+
+           let nombre = document.querySelector('#nombreFormField').value;
+           let edad = document.querySelector('#edadFormField').value;
+
+          console.log('nombre ' + nombre);
+          console.log('edad' + edad);
+
+           
+
+            const rawResponse = await fetch('/contacts',{
+            method:'POST',
+            headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify({ name: nombre,age:edad})
+          });
+          const content = await rawResponse.json();
+          console.log(content);
+            
+          });
+     
+
+  </script>
 </html>

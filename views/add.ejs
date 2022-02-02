@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacts app with templates</title>
-    <link rel="stylesheet" href="/assets/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <nav>
-        <h3>Contacts App with templates ejs!</h3>
-      </nav>
-      <div class="app-container">
-       
 
-        <form id="newcontactform" class="formulario" action="" method="POST">
+
+        <form id="newcontactform" class="formulario" action="" >
          
           <label>Nombre</label>
          
@@ -29,12 +14,6 @@
           <% if(typeof error != "undefined" ) { %> 
             <p class="error_msg">Error: The  age cannot be blank</p>
          <% } %>
-         
-          <button id="btnenv">Guardar Contacto</button>
-          <a href="/" id="back">Volver</a>
+     
         </form>
-      </div>
-    </div>
-  </body>
-  <script src="/assets/js/main.js"></script>
-</html>
+ 
