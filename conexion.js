@@ -18,5 +18,5 @@ const conexion = mysql.createConnection({
     if (err) throw err;
     console.log("conectado a mysql");
   });
-   
+  
 module.exports = conexion;

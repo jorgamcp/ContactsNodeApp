@@ -35,15 +35,15 @@ router.post("/add", function (request, response, next) {
     age: request.body.edadFormFieldName,
   };
 
- 
-  if(mycontact.name === '' && mycontact.age === ''){
-    console.log('name if: ' + mycontact.name);
-    console.log('age if: ' + mycontact.age);
-        return response.render("add.ejs", { error: 'fiels blank' , name: mycontact.name,age:mycontact.age});
+  if (mycontact.name === "" && mycontact.age === "") {
+    console.log("name if: " + mycontact.name);
+    console.log("age if: " + mycontact.age);
+    return response.render("add.ejs", {
+      error: "fiels blank",
+      name: mycontact.name,
+      age: mycontact.age,
+    });
   }
- 
-  
-
 
   const sql_insert_query = "INSERT INTO contacts(name,age) VALUES (?,?)";
   conexion.query(
