@@ -61,6 +61,17 @@ contactRouter.get("/contacts/:id", function (request, response) {
   });
   contactRouter.post("/", function (request, response) {
     console.log(request.body);
+
+    if(request.body.name === ''|| request.body.age === '')
+    {
+      response.status(200).json({
+        api_info_code:99,
+        message:"Blank Fields"
+      });
+      return response;
+    }
+
+
     const sql_insert_query = "INSERT INTO contacts(name,age) VALUES (?,?)";
     conexion.query(
       sql_insert_query,

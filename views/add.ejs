@@ -4,13 +4,13 @@
          
           <label>Nombre</label>
          
-          <input id="nombreFormField" name="nombreFormFieldName" type="text" />
+          <input id="nombreFormField" name="nombreFormFieldName" class="form-control" type="text" />
           <% if(typeof error != "undefined" ) { %>
             <% console.log(error)%>
             <p class="error_msg">Error: The  Name cannot be blank</p>
          <% } %>
           <label>Edad</label>
-          <input id="edadFormField" name="edadFormFieldName" type="text" />
+          <input id="edadFormField" name="edadFormFieldName" class="form-control" type="text" />
           <% if(typeof error != "undefined" ) { %> 
             <p class="error_msg">Error: The  age cannot be blank</p>
          <% } %>

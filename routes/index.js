@@ -12,8 +12,12 @@ router.get("/", function (request, response, next) {
   const sql_query = "SELECT * FROM contacts";
 
   conexion.query(sql_query, function (error, resultados) {
+
     // Si hay error excepcion muestralo por consola.
-    if (error) return response.render("index.ejs", { error_msg: error });
+    if (error) return response.render("index.ejs", {  data:resultados });
+    
+  
+    
     // console.log(resultados);
     return response.render("index.ejs", { data: resultados });
   });
