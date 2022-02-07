@@ -23,7 +23,7 @@
         <!-- Button trigger modal -->
 
 
-<!-- Modal -->
+<!-- Modal Add -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -38,6 +38,26 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" id="mibotoncabron" class="btn btn-primary">Save changes</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Contact</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%- include('edit.ejs') -%>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="mibotoncabron" class="btn btn-warning">Edit Contact</button>
+        </div>
+      </div>
+     
     </div>
   </div>
 </div>
@@ -68,7 +88,7 @@
                       <td><%= data[i].name %></td>
                       <td><%= data[i].age %></td>
                       <td>
-                        <a href="/edit/<%= data[i].contact_id %>"> Editar</a>
+                        <a data-bs-target="#editModal" data-bs-toggle="modal" href="editModal"> Editar</a>
                       </td>
                       <td>
                         <a href="/delete/<%= data[i].contact_id %>"> Eliminar</a>
