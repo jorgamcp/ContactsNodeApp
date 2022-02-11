@@ -54,7 +54,7 @@
         <%- include('edit.ejs') -%>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" id="mibotoncabron" class="btn btn-warning">Edit Contact</button>
+          <button type="button" id="mibotonsendedit" class="btn btn-warning">Edit Contact</button>
         </div>
       </div>
      
@@ -83,12 +83,13 @@
                 </tr>
               <%} else{ %> 
                     <% for(var i = 0; i < data.length;i++){ %>
-                    <tr>
-                      <td><%= data[i].contact_id %></td>
+                    <tr id=<%= data[i].contact_id %>>
+                      <td ><%= data[i].contact_id %></td>
                       <td><%= data[i].name %></td>
                       <td><%= data[i].age %></td>
                       <td>
-                        <a data-bs-target="#editModal" data-bs-toggle="modal" href="editModal"> Editar</a>
+                      <!--  <a data-bs-target="#editModal" data-bs-toggle="modal" href="editModal" name="<%= data[i].contact_id%>"> Editar</a>-->
+                      <a href="#" name="<%= data[i].contact_id%>">Editar</a>
                       </td>
                       <td>
                         <a href="/delete/<%= data[i].contact_id %>"> Eliminar</a>
@@ -106,6 +107,5 @@
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/editmodal.js"></script>
-
+  <script src="assets/js/editmodal.js" type="application/javascript"></script>
 </html>

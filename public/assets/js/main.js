@@ -62,7 +62,7 @@ async function repaintHTMLTable(json) {
 
   aEditar.title = "Editar";
   aEliminar.title = "Eliminar";
-  aEditar.href = `/edit/${json.contact_id}`; // http://localhost:3000/edit/41
+  aEditar.href = `editModal`; 
   aEliminar.href = `/delete/${json.contact_id}`;
 
   contactid.appendChild(textContactId);
