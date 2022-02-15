@@ -51,7 +51,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%- include('edit.ejs') -%>
+        <%- include('edit.ejs',{data:data}) -%>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" id="mibotonsendedit" class="btn btn-warning">Edit Contact</button>
@@ -88,8 +88,8 @@
                       <td><%= data[i].name %></td>
                       <td><%= data[i].age %></td>
                       <td>
-                      <!--  <a data-bs-target="#editModal" data-bs-toggle="modal" href="editModal" name="<%= data[i].contact_id%>"> Editar</a>-->
-                      <a href="#" name="<%= data[i].contact_id%>">Editar</a>
+                       <a data-bs-target="#editModal" data-bs-toggle="modal" href="editModal" name="<%= data[i].contact_id%>"> Editar</a>
+                      <!-- <a href="#" name="<%= data[i].contact_id%>">Editar</a> -->
                       </td>
                       <td>
                         <a href="/delete/<%= data[i].contact_id %>"> Eliminar</a>
