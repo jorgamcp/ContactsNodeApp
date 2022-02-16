@@ -16,6 +16,9 @@ window.addEventListener('DOMContentLoaded',function(){
 function cerrarModal(){
   var cerrarmodalButton = document.getElementById('closemodaldown').addEventListener('click',function(){
       console.log('cerrar el modal!');
+      const editmodal = document.querySelector('#editModal');
+      var modal = bootstrap.Modal.getOrCreateInstance(editmodal);
+      modal.hide();
   })
 }
 function sendEditModal(){
