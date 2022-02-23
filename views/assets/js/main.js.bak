@@ -2,6 +2,10 @@ var boton = document.querySelectorAll("#mibotoncabron");
 const container = document.getElementById("exampleModal");
 const modal = new bootstrap.Modal(container);
 
+    myModal.addEventListener('mibotonmodal', function (event) {
+          alert('click!')
+    })
+
 boton[0].addEventListener("click", async function (e) {
   e.preventDefault();
   console.log("quieres enviar el form del modal!");
@@ -62,7 +66,7 @@ async function repaintHTMLTable(json) {
 
   aEditar.title = "Editar";
   aEliminar.title = "Eliminar";
-  aEditar.href = `editModal`; 
+  aEditar.href = `/edit/${json.contact_id}`; // http://localhost:3000/edit/41
   aEliminar.href = `/delete/${json.contact_id}`;
 
   contactid.appendChild(textContactId);

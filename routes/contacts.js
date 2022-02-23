@@ -24,7 +24,7 @@ contactRouter.get("/", function (request, response) {
 /*
  * se sustituye  ? de la query por [request.params.id] el id que me viene de la url.
  */
-contactRouter.get("/contacts/:id", function (request, response) {
+contactRouter.get("/:id", function (request, response) {
     const sql_query = "SELECT * FROM contacts WHERE contact_id = ?"; // ? --> Avoid SQL Injection.
     conexion.query(sql_query, [request.params.id], function (error, resultados) {
       if (error) throw error;
@@ -38,7 +38,7 @@ contactRouter.get("/contacts/:id", function (request, response) {
       }
     });
   });
-  contactRouter.get("/edit/:id", function (request, response) {
+  contactRouter.get("/:id", function (request, response) {
     let existe = false;
     const sql_query = "SELECT * FROM contacts WHERE contact_id = ?";
   
@@ -59,7 +59,7 @@ contactRouter.get("/contacts/:id", function (request, response) {
       }
     });
   });
-  contactRouter.post("/", function (request, response) {
+  contactRouter.post("/:id", function (request, response) {
     console.log(request.body);
 
     if(request.body.name === ''|| request.body.age === '')
@@ -70,7 +70,7 @@ contactRouter.get("/contacts/:id", function (request, response) {
       });
       return response;
     }
-
+    // TODO: AVOID INSERT EXISTING CONTACT.
 
     const sql_insert_query = "INSERT INTO contacts(name,age) VALUES (?,?)";
     conexion.query(
@@ -96,7 +96,7 @@ contactRouter.get("/contacts/:id", function (request, response) {
     );
   });
   
-  contactRouter.put("/contacts/:id", function (request, response) {
+  contactRouter.put("/:id", function (request, response) {
     const { id } = request.params;
     const sql_query_update =
       "UPDATE contacts SET name = ?, age = ? where contact_id = ?";
@@ -123,7 +123,7 @@ contactRouter.get("/contacts/:id", function (request, response) {
     );
   });
   
-  contactRouter.delete("/contacts/:id", function (request, response) {
+  contactRouter.delete("/:id", function (request, response) {
     const { id } = request.params;
     const sql_query_delete = `DELETE FROM contacts WHERE contact_id = ${id}`;
   
